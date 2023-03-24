@@ -891,3 +891,15 @@ RegisterNetEvent("redemrp_status:client:PipeMenu", function(hasOpium, hasWeed, h
         menu.close()
     end)
 end)
+
+function Vomit()
+    RequestAnimDict("amb_misc@world_human_vomit@male_a@idle_c")
+    while not HasAnimDictLoaded("amb_misc@world_human_vomit@male_a@idle_c") do 
+        Wait(1)
+    end
+    TaskPlayAnim(PlayerPedId(), "amb_misc@world_human_vomit@male_a@idle_c", "idle_g", 8.0, 8.0, 3000, 1, 0, false, false, false)
+end
+
+RegisterNetEvent('redemrp_status:vomit_anim', function()
+    Vomit()
+end)
